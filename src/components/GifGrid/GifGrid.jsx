@@ -1,28 +1,32 @@
-import { useEffect, useState } from 'react';
 import './GifGrid.css';
-import { getGifs } from '../../helpers/getGifs';
+import PropTypes from 'prop-types';
+import { BiLoaderCircle } from 'react-icons/bi';
+import { GifItem } from '../../components';
+import useFetchGifs from '../../hooks/useFetchGifs';
 
-function GifGrid(props) {
+export function GifGrid(props) {
 	const { category } = props;
-	const [gifs, setGifs] = useState([]);
 
-	useEffect(() => {
-		getGifs(category).then((newGifs) => {
-			setGifs(newGifs);
-		});
-	}, []);
+	const { gifs, isLoading } = useFetchGifs(category);
 
 	return (
 		<>
-			<h3>{category}</h3>
-			<ul>
+			<h2>{category}</h2>
+			{isLoading && (
+				<h3 className='loader'>
+					Loading <BiLoaderCircle />
+				</h3>
+			)}
+			<div className='gifGrid'>
 				{gifs.map((gif) => {
-					const { id, title, image } = gif;
-					return <li key={id}>{title}</li>;
+					const { id, title, url } = gif;
+					return <GifItem key={id} title={title} url={url} />;
 				})}
-			</ul>
+			</div>
 		</>
 	);
 }
 
-export default GifGrid;
+GifGrid.propTypes = {
+	category: PropTypes.string.isRequired,
+};

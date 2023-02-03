@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Form.css';
 import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter';
 
-function Form(props) {
+export function Form(props) {
 	const { handleAdd } = props;
 	const [inputValue, setInputValue] = useState('');
 
@@ -24,7 +24,7 @@ function Form(props) {
 		<form onSubmit={handleSubmit}>
 			<input
 				autoComplete='off'
-				placeholder='Add category...'
+				placeholder='Search GIFs...'
 				name='category'
 				id='category'
 				onChange={handleChange}
@@ -32,5 +32,3 @@ function Form(props) {
 		</form>
 	);
 }
-
-export default Form;

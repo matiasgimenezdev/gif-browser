@@ -1,0 +1,24 @@
+h2 {
+	padding: 1.5rem;
+	font-size: 1.8rem;
+}
+
+.gifGrid {
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 95%;
+	gap: 1rem;
+}
+
+.loader {
+	margin: auto;
+	display: flex;
+	align-items: center;
+
+	justify-content: center;
+	gap: 0.6rem;
+	font-size: 1.8rem;
+}

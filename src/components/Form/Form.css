@@ -1,0 +1,22 @@
+form {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+input {
+	height: 3rem;
+	width: 80%;
+	border-radius: 20px;
+	outline: none;
+	background-color: rgb(1, 1, 1);
+	border: none;
+	padding: 0.5rem;
+	color: white;
+	font-size: 1.2rem;
+}
+
+input::placeholder {
+	color: white;
+	font-size: 1.2rem;
+}

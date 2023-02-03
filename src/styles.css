@@ -1,6 +1,7 @@
 html {
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
+	background-color: #f7f7f7;
 }
 
 *,
@@ -12,5 +13,9 @@ html {
 }
 
 h1 {
+	width: 100%;
 	padding: 0.8rem 0.5rem;
+	text-align: center;
+	font-size: 3rem;
+	text-decoration: wavy;
 }
