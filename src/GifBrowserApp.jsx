@@ -1,35 +1,24 @@
 import { useState } from 'react';
+import Form from './components/Form/Form';
+import GifGrid from './components/GifGrid/GifGrid';
+
 function GifExpertApp() {
-	const [categories, setCategories] = useState([
-		'Fútbol',
-		'Programación',
-		'Arte',
-	]);
-	const [category, setCategory] = useState('');
+	const [categories, setCategories] = useState(['Valorant']);
 
-	const handleChange = (event) => {
-		setCategory(event.target.value);
-	};
-
-	const handleAdd = (event) => {
-		setCategories([category, ...categories]);
+	const handleAdd = (category) => {
+		if (!categories.includes(category)) {
+			setCategories([category, ...categories]);
+		}
 	};
 
 	return (
 		<>
 			<h1>Gif Expert Application</h1>
-			<input
-				placeholder='Add category...'
-				name='category'
-				id='category'
-				onChange={handleChange}
-			/>
-			<button onClick={handleAdd}>Add category</button>
-			<ol>
-				{categories.map((category) => {
-					return <li key={category}>{category}</li>;
-				})}
-			</ol>
+			<Form handleAdd={handleAdd} />
+
+			{categories.map((category) => {
+				return <GifGrid key={category} category={category} />;
+			})}
 		</>
 	);
 }
