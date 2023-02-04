@@ -5,7 +5,7 @@ import { GifItem } from '../../components';
 import useFetchGifs from '../../hooks/useFetchGifs';
 
 export function GifGrid(props) {
-	const { category } = props;
+	const { category, handleRemove } = props;
 
 	const { gifs, isLoading } = useFetchGifs(category);
 
@@ -23,6 +23,12 @@ export function GifGrid(props) {
 					return <GifItem key={id} title={title} url={url} />;
 				})}
 			</div>
+			<button
+				className='removeCategory'
+				onClick={() => handleRemove(category)}
+			>
+				Remove category
+			</button>
 		</>
 	);
 }
