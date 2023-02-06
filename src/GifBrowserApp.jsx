@@ -2,11 +2,20 @@ import { useState } from 'react';
 import { Form, GifGrid } from './components';
 
 function GifExpertApp() {
-	const [categories, setCategories] = useState([]);
+	const [categories, setCategories] = useState(['Development']);
 
 	const handleAddCategory = (category) => {
 		if (!categories.includes(category)) {
 			setCategories([category, ...categories]);
+		}
+	};
+
+	const handleRemove = (category) => {
+		const index = categories.indexOf(category);
+		if (index >= 0) {
+			const newCategories = [...categories];
+			newCategories.splice(index, 1);
+			setCategories(newCategories);
 		}
 	};
 
@@ -17,7 +26,13 @@ function GifExpertApp() {
 
 			{categories.length > 0 ? (
 				categories.map((category) => {
-					return <GifGrid key={category} category={category} />;
+					return (
+						<GifGrid
+							key={category}
+							category={category}
+							handleRemove={handleRemove}
+						/>
+					);
 				})
 			) : (
 				<p className='noSearchMessage'>

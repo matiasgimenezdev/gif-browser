@@ -25,3 +25,21 @@ h2 {
 	gap: 0.6rem;
 	font-size: 1.8rem;
 }
+
+.removeCategory {
+	width: 50%;
+	height: 3rem;
+	font-size: 1.5rem;
+	border-radius: 25px;
+	padding: 0.3rem;
+	margin: 3rem;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+	border: none;
+	transition: background 300ms ease;
+}
+
+.removeCategory:hover {
+	background-color: red;
+}
