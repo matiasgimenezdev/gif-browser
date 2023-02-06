@@ -3,7 +3,7 @@ import './Form.css';
 import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter';
 
 export function Form(props) {
-	const { handleAdd } = props;
+	const { handleAddCategory } = props;
 	const [inputValue, setInputValue] = useState('');
 
 	const handleChange = (event) => {
@@ -14,14 +14,14 @@ export function Form(props) {
 		event.preventDefault();
 		const category = capitalizeFirstLetter(inputValue.trim().toLowerCase());
 		if (category.length > 0) {
-			handleAdd(category);
+			handleAddCategory(category);
 			setInputValue('');
 			event.target.reset();
 		}
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} aria-label='form'>
 			<input
 				autoComplete='off'
 				placeholder='Search GIFs...'

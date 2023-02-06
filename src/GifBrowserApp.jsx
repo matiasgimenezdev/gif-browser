@@ -4,7 +4,7 @@ import { Form, GifGrid } from './components';
 function GifExpertApp() {
 	const [categories, setCategories] = useState([]);
 
-	const handleAdd = (category) => {
+	const handleAddCategory = (category) => {
 		if (!categories.includes(category)) {
 			setCategories([category, ...categories]);
 		}
@@ -13,7 +13,7 @@ function GifExpertApp() {
 	return (
 		<div className='app'>
 			<h1 className='heading'>GIF Browser</h1>
-			<Form handleAdd={handleAdd} />
+			<Form handleAddCategory={handleAddCategory} />
 
 			{categories.length > 0 ? (
 				categories.map((category) => {
