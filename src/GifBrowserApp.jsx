@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Form, GifGrid } from './components';
 
 function GifExpertApp() {
-	const [categories, setCategories] = useState(['Development']);
+	const [categories, setCategories] = useState([]);
 
 	const handleAddCategory = (category) => {
 		if (!categories.includes(category)) {
